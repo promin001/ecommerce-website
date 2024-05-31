@@ -1,0 +1,198 @@
+<head>
+  <title>E-Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <style>
+
+    .cart-icon {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart-content {
+        background: white;
+        padding: 20px;
+        max-height: 70%;
+        overflow-y: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+      color: black;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .cart-total {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .quantity-input {
+        width: 40px;
+    }
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="top-navbar-border">
+      <div class="top-navbar">
+        <a href="#">Become a Seller &nbsp &nbsp &nbsp</a>
+        <a href="#">Donate &nbsp&nbsp&nbsp</a>
+        <a href="#">Help and Support</a>
+      <div class="top-nevber-app" >
+        <a href="#">Download App</a>
+      </div>
+      </div>
+    </div>
+    <div class="navbar-border">
+      <div class="navbar">
+      <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2>
+      <ul class="links">
+          <!--<div class="search-box">
+            <form action="">
+              <input type="search" id="search-input" placeholder="&nbsp &nbsp Search your Items">
+              <a href="index1.html"> <button id="search" type="submit"><i class="fa fa-search"></i></button> 
+            </form>
+          </div> -->
+          <div class="wrapper">
+            <div id="search-container">
+              <input
+                type="search"
+                id="search-input"
+                placeholder="Search product name here.."
+              />
+              <a href="index1.html"> <button  id="search">Search</button> </a>
+            </div>
+            <script>
+              function filterProducts() {
+                  // Get user input
+                  const filterValue = document.getElementById("filterInput").value.toLowerCase();
+                  
+                  // Open the second HTML page with the filtered query
+                  window.location.href = `products.html?query=${filterValue}`;
+              }
+          </script>
+          </div>
+          <li><a href="shop.html">Shop</a></li>
+          <li>|</li>
+        <li><a href="#">Login</a></li>
+        <li>|</li>
+        <li><a href="#">Sign Up</a></li>
+        <li>|</li>
+        <div class="switch">
+          <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+          <label for="language-toggle"></label>
+          <span class="on">BN</span>
+          <span class="off">EN</span>
+        </div>
+        <li>|</li>
+        <div class="cart-icon" id="open-cart" onclick="openCart()"><i class="bi bi-cart"></i></div>
+        <div class="popup" id="cart-popup">
+  <div class="cart-content">
+      <h2 style="color: black; text-align: center;">Your Cart</h2>
+      <table>
+          <thead>
+              <tr>
+                  <th>Product Name</th>
+                  <th>Image</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+              </tr>
+          </thead>
+          <tbody id="cart-items">
+              <!-- Cart items will be displayed here -->
+          </tbody>
+      </table>
+      <div style="color: black;" class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+      <button onclick="checkout()">Pay</button>
+      <button onclick="closeCart()">Close</button>
+  </div>
+</div>
+      </ul>
+    </div>
+  </div>
+  </header>
+  <script>
+    let cart = [];
+
+    function addToCart(name, price, image) {
+        const existingpro = cart.find(item => item.name === name);
+
+        if (existingpro) {
+            existingpro.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1, image });
+        }
+
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td><img src="${item.image}" alt=""></td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td><input type="number" value="${item.quantity}" class="quantity-input" min="1" onchange="updateQuantity('${item.name}', this.value)"></td>
+                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+            `;
+            cartItems.appendChild(row);
+
+            total += item.price * item.quantity;
+        });
+
+        document.getElementById('cart-total').textContent = total.toFixed(2);
+    }
+
+    function openCart() {
+        document.getElementById('cart-popup').style.display = 'flex';
+    }
+
+    function closeCart() {
+        document.getElementById('cart-popup').style.display = 'none';
+    }
+
+    function updateQuantity(name, newQuantity) {
+        const pro = cart.find(item => item.name === name);
+        if (pro) {
+            pro.quantity = parseInt(newQuantity);
+            updateCart();
+        }
+    }
+
+    function checkout() {
+        closeCart();
+        alert(`Total Amount: $${document.getElementById('cart-total').textContent}`);
+    }
+</script>
+  </body>

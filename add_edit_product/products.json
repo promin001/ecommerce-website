@@ -1,0 +1,16 @@
+{
+    "0": {
+        "name": "Ahatesham",
+        "price": "1500",
+        "details": "blue",
+        "color": "Blue",
+        "photo": "uploads\/pubga.jpg"
+    },
+    "1": {
+        "name": "Nokia",
+        "price": "200",
+        "details": "hello",
+        "color": "weight",
+        "photo": "uploads\/Captuwefwere.PNG"
+    }
+}

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="top-navbar-border">
+        <div class="top-navbar">
+          <a href="#">Become a Seller &nbsp &nbsp &nbsp</a>
+          <a href="#">Donate &nbsp&nbsp&nbsp</a>
+          <a href="#">Help and Support</a>
+        <div class="top-nevber-app" >
+          <a href="#">Download App</a>
+        </div>
+        </div>
+      </div>
+      <div class="navbar-border">
+        <div class="navbar">
+        <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2>
+        <ul class="links">
+            <!--<div class="search-box">
+              <form action="">
+                <input type="search" id="search-input" placeholder="&nbsp &nbsp Search your Items">
+                <a href="index1.html"> <button id="search" type="submit"><i class="fa fa-search"></i></button> 
+              </form>
+            </div> -->
+
+            
+            <!--<div class="wrapper">
+              <div id="search-container">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Search product name here.."
+                />
+                <a href="index1.html"> <button  id="search">Search</button> </a>
+              </div>
+            </div>-->
+            <div class="wrapper">
+              <div id="search-container">
+                  <div id="search-box">
+                      <input type="text" id="searchInput" placeholder="Search by product name">
+                      <button id="searchButton">Search</button>
+                  </div>
+                  <div id="search-history-popup" class="popupp">
+                      <div id="search-history-container">
+                          <ul id="search-history-list"></ul>
+                      </div>
+                      <button id="clearHistory">Clear</button>
+                  </div>
+              </div>
+          </div>
+
+            <li><a href="shop.html">Shop</a></li>
+            <li>|</li>
+            <li><a href="signup.html">Login & Sign Up</a></li>
+            <li>|</li>
+          <div class="switch">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">BN</span>
+            <span class="off">EN</span>
+          </div>
+          <li>|</li>       
+           <div class="cart-icon" id="open-cart" onclick="openCart()"><i class="bi bi-cart"></i></div>
+          <div class="popup" id="cart-popup">
+    <div class="cart-content">
+        <h2 style="color: black; text-align: center;">Your Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </tbody>
+        </table>
+        <div style="color: black;" class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+        <button onclick="checkout()">Pay</button>
+        <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+    </header>
+    <section class="container">
+      <div class="categoryandproduct">
+      <div class="side-navv">
+        <nav>
+          <div id="filter">
+            <h2>Filter</h2><br>
+            <div class="service-name">
+            <a href="add_edit_product/add_product.html">Add Products</a> </div>
+            <div class="filter-options">
+              <h3>Promotion & Services</h3><br>
+              <div class="service">
+                <div class="service-name">
+                <a href="#"><i class="bi bi-truck" value="Free Delivery"></i><a href="#">Free Delivery</a></a>
+                </div>
+                <div class="service-name">
+                  <a href="#"><i class="bi bi-cash-coin" value="Cash On Delivery"></i><a href="#">Cash On Delivery</a></a>
+                </div>
+                <div class="service-name">
+                  <a href="#"><i class="bi bi-coin" value="Installment"></i><a href="#">Installment</a></a>
+                </div>
+              </div><br>
+
+                <h3>Brand</h3>
+                <div class="brand-filters">
+                <label class="cl-checkbox">
+                    <input type="checkbox" class="brand-filter" value="Iphone" onclick="filterProducts('Iphone')"> <span>iPhone</span>
+                </label><br>
+                <label class="cl-checkbox">
+                    <input type="checkbox" class="brand-filter" value="Samsung" onclick="filterProducts('Samsung')"> <span>Samsung</span>
+                </label><br>
+                <label class="cl-checkbox">
+                    <input type="checkbox" class="brand-filter" value="Oneplus"  onclick="filterProducts('Oneplus')"> <span>OnePlus</span>
+                </label><br>
+                <label class="cl-checkbox">
+                <input type="checkbox" class="brand-filter" value="Nothing" onclick="filterProducts('Nothing')"> <span>Nothing</span>
+              </label>
+            </div>
+            </div><br>
+
+            <h3>Price Range</h3>
+            <div class="filter-option">
+                <label><input type="number" id="min-price" placeholder="Min" oninput="filterProducts()"></label>
+                <label> <input type="number" id="max-price" placeholder="Max" oninput="filterProducts()"></label>
+            </div><br>
+            <h3>Location</h3>
+            <div class="location-filters">
+            <label class="cl-checkbox">
+                <input type="checkbox" class="location-filter" value="Bangladesh" onclick="filterProducts()"><span>Bangladesh</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="location-filter" value="China" onclick="filterProducts()"><span>China</span> 
+            </label><br>
+            </div>
+
+            <h3>Ram Memory</h3>
+            <div class="ram-filters">
+            <label class="cl-checkbox">
+                <input type="checkbox" class="ram-filter" value="1GB" onclick="filterProducts()"><span>1GB</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="ram-filter" value="2GB" onclick="filterProducts()"><span>2GB</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="ram-filter" value="3GB" onclick="filterProducts()"><span>3GB</span> 
+            </label><br>
+            <label class="cl-checkbox">
+            <input type="checkbox" class="ram-filter" value="4GB" onclick="filterProducts()"><span>4GB</span> 
+          </label><br>
+          <label class="cl-checkbox">
+          <input type="checkbox" class="ram-filter" value="6GB" onclick="filterProducts()"><span>6GB</span> 
+        </label><br>
+        <label class="cl-checkbox">
+            <input type="checkbox" class="ram-filter" value="8GB" onclick="filterProducts()"><span>8GB</span> 
+        </label><br>
+        <label class="cl-checkbox">
+            <input type="checkbox" class="ram-filter" value="12GB" onclick="filterProducts()"><span>12GB</span> 
+        </label><br>
+        <label class="cl-checkbox">
+        <input type="checkbox" class="ram-filter" value="16GB" onclick="filterProducts()"> <span>16GB</span>
+      </label><br>
+      <label class="cl-checkbox">
+        <input type="checkbox" class="ram-filter" value="32GB" onclick="filterProducts()"><span>32GB</span> 
+      </label>
+        </div>
+
+        <h3>Operating System</h3>
+            <div class="os-filters">
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Operating-filter" value="Android" onclick="filterProducts()"><span>Android</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Operating-filter" value="ios" onclick="filterProducts()"><span>IOS</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Operating-filter" value="Marshmallow v6.0" onclick="filterProducts()"><span>Marshmallow v6.0</span> 
+            </label><br>
+            <label class="cl-checkbox">
+            <input type="checkbox" class="Operating-filter" value="Others" onclick="filterProducts()"><span>Others</span> 
+          </label><br>
+          <label class="cl-checkbox">
+            </div>
+
+            <h3>Battery Capacity (mAh)</h3>
+            <div class="battery-filters">
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Battery-filter" value="5000-5999" onclick="filterProducts()"><span>5000-5999 mAh</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Battery-filter" value="4000-4999" onclick="filterProducts()"><span>4000-4999 mAh</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Battery-filter" value="3000-3999" onclick="filterProducts()"><span>3000-3999 mAh</span> 
+            </label><br>
+            <label class="cl-checkbox">
+            <input type="checkbox" class="Battery-filter" value="2000-2999" onclick="filterProducts()"><span>2000-2999 mAh</span> 
+          </label><br>
+          <label class="cl-checkbox">
+            <input type="checkbox" class="Battery-filter" value="6000-6999" onclick="filterProducts()"><span>6000-6999 mAh</span> 
+          </label><br>
+          <label class="cl-checkbox">
+            </div>
+
+            <h3>Number of SIM</h3>
+            <div class="Number-filters">
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Number-filter" value="Dual" onclick="filterProducts()"><span>Dual SIM</span> 
+            </label><br>
+            <label class="cl-checkbox">
+                <input type="checkbox" class="Number-filter" value="Single" onclick="filterProducts()"><span>Single SIM</span> 
+            </label><br>
+              </div>
+            
+              <h3>Camera Front (Megapixels)</h3>
+              <div class="Camera-filters">
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Camera-filter" value="6-10" onclick="filterProducts()"><span>6MP - 10MP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Camera-filter" value="11-15" onclick="filterProducts()"><span>11MP - 15MP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Camera-filter" value="1-5" onclick="filterProducts()"><span>1MB - 5MP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+              <input type="checkbox" class="Camera-filter" value="16-30" onclick="filterProducts()"><span>16MP - 30MP</span> 
+            </label><br>
+            <label class="cl-checkbox">
+              <input type="checkbox" class="Camera-filter" value="31-40" onclick="filterProducts()"><span>31MP - 40MP</span>
+            </label><br>
+            <label class="cl-checkbox">
+              <input type="checkbox" class="Camera-filter" value="41-50" onclick="filterProducts()"><span>41MP - 50MP</span>
+            </label><br>
+            <label class="cl-checkbox">
+              <input type="checkbox" class="Camera-filter" value="50-1000" onclick="filterProducts()"><span>50MP and Above</span>
+            </label><br>
+            <label class="cl-checkbox">
+              </div>
+
+              <h3>Camera Back (Megapixels)</h3>
+              <div class="Backcam-filters">
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="41-50" onclick="filterProducts()"><span>41MP - 50MP</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="50-2000" onclick="filterProducts()"><span>50MP and Above</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="31-40" onclick="filterProducts()"><span>31MP - 40MP</span>
+                </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="6-10" onclick="filterProducts()"><span>6MP - 10MP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="11-15" onclick="filterProducts()"><span>11MP - 15MP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="Backcam-filter" value="1-5" onclick="filterProducts()"><span>1MB - TMP</span> 
+              </label><br>
+              <label class="cl-checkbox">
+              <input type="checkbox" class="Backcam-filter" value="16-30" onclick="filterProducts()"><span>16MP - 30MP</span> 
+            </label><br>
+              </div>
+
+              <h3>Screen Size (inches)</h3>
+              <div class="brand-filters">
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="6-8" onclick="filterProducts()"><span>6 inch and Above</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="5.6-6" onclick="filterProducts()"><span>5.6 - 6 Inch</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="5.1-5.5" onclick="filterProducts()"><span>5.1 - 5.5 Inch</span>
+                </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="4.6-5" onclick="filterProducts()"><span>4.6 - 5 Inch</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="4.1-4.5" onclick="filterProducts()"><span>4.1 - 4.5 Inch</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="ScreenSize-filter" value="3.6-4" onclick="filterProducts()"><span>3.6 - 4 Inch</span> 
+              </label><br>
+              </div>
+
+              <h3>Storage Capacity</h3>
+              <div class="storage-filters">
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="128GB" onclick="filterProducts()"><span>128GB</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="256GB" onclick="filterProducts()"><span>256GB</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="64GB" onclick="filterProducts()"><span>64GB</span>
+                </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="32GB" onclick="filterProducts()"><span>32GB</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="512GB" onclick="filterProducts()"><span>512GB</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="storage-filter" value="1TB" onclick="filterProducts()"><span>1TB</span> 
+              </label><br>
+              <label class="cl-checkbox">
+                <input type="checkbox" class="storage-filter" value="16GB" onclick="filterProducts()"><span>16GB</span> 
+            </label><br>
+            <label class="cl-checkbox">
+              <input type="checkbox" class="storage-filter" value="8GB" onclick="filterProducts()"><span>8GB</span> 
+          </label><br>
+          <label class="cl-checkbox">
+            <input type="checkbox" class="storage-filter" value="4GB" onclick="filterProducts()"><span>4GB</span> 
+        </label><br>
+        <label class="cl-checkbox">
+          <input type="checkbox" class="storage-filter" value="2GB" onclick="filterProducts()"><span>2GB</span> 
+      </label><br>
+      <label class="cl-checkbox">
+        <input type="checkbox" class="storage-filter" value="1GB-0GB" onclick="filterProducts()"><span>1GB and Below</span> 
+    </label><br>
+              </div>
+
+              <h3>Warranty Type</h3>
+              <div class="warranty-filters">
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="warranty-filter" value="Brand-Warranty" onclick="filterProducts()"><span>Brand Warranty</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="warranty-filter" value="No-Warranty" onclick="filterProducts()"><span>No Warranty</span>
+                </label><br>
+                <label class="cl-checkbox">
+                  <input type="checkbox" class="warranty-filter" value="Seller-Warranty" onclick="filterProducts()"><span>Seller Warranty</span>
+                </label><br>
+              <label class="cl-checkbox">
+                  <input type="checkbox" class="warranty-filter" value="Local-Seller-Warranty" onclick="filterProducts()"><span>Local Seller Warranty</span> 
+              </label><br>
+              </div>
+              
+            <div class="filter-button"><br><br>
+            <button id="filter-button" onclick="filterProducts()">Filter</button>
+          </div>
+        </div>
+        </nav>
+      </div>
+      <div class="categories">
+        <br><br><br><br><br><b><br><br><br><br></b>
+         <!--image slider start-->
+    <section id="product1" class="section-p1">
+      <h2> Feature products</h2>
+      <p>You can see there our Fevorate products</p>
+      <div class="sortby">
+      <select id="sort">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="priceHighToLow">Price High to Low</option>
+        <option value="priceLowToHigh">Price Low to High</option>
+        <option value="nameAZ">Name A to Z</option>
+        <option value="nameZA">Name Z to A</option>
+    </select>
+  </div>
+      <div id="pro-contariners" class="pro-contariner">
+        <div class="pro" data-name="Iphone 14 pro max" data-brand="Iphone" data-price="1600" data-services="Free Delivery" data-date="2023-10-01" data-location="Bangladesh" data-ram="4GB" data-os="ios" data-battery="4500" data-sim="Dual" data-camera="20" data-camback="32" data-screen="5.67" data-storage="1TB" data-warranty="Brand-Warranty">
+          <a href="iphone14promax.html"><img src="image/iphone14promax.jpg" alt=""></a>
+          <div class="des">
+              <a href="#"><span> Iphone</span></a>
+              <h4><a href="iphone14promax.html">Iphone 14 pro max</a></h4>
+              <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Iphone 14 pro max', 1600, 'image/iphone14promax.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="iPhone 12" data-brand="Iphone" data-price="750" data-services="Cash On Delivery" data-date="2020-10-01" data-location="China" data-ram="3GB" data-os="ios" data-battery="4000" data-sim="Dual" data-camera="18" data-camback="25" data-screen="5.1" data-storage="256GB" data-warranty="No-Warranty">
+        <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/1533-48820.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="iphone14promax.html">iPhone 12</a></h4>
+            <h4>$750</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 12', 750, 'https://adminapi.applegadgetsbd.com/storage/media/large/1533-48820.jpg')">
+            <i class="bi bi-bag-check-fill"></i>
+        </a>
+    </div>
+    <div class="pro" data-name="iPhone XS Max" data-brand="Iphone" data-price="600" data-services="Installment" data-date="2018-10-01" data-location="Bangladesh" data-ram="3GB" data-os="ios" data-battery="3600" data-sim="Single" data-camera="12" data-camback="18" data-screen="5.6" data-storage="256" data-warranty="Brand-Warranty">
+      <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/1544-82328.jpg" alt=""></a>
+      <div class="des">
+          <a href="#"><span> Iphone</span></a>
+          <h4><a href="iphone14promax.html">iPhone XS Max </a></h4>
+          <h4>$600</h4>
+      </div>
+      <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone XS Max ', 600, 'https://adminapi.applegadgetsbd.com/storage/media/large/1544-82328.jpg')">
+          <i class="bi bi-bag-check-fill"></i>
+      </a>
+  </div> 
+  <div class="pro" data-name="iPhone 12 Pro Max 24KT Gold Edition" data-brand="Iphone" data-price="1900" data-services="Installment" data-date="2020-10-01" data-location="Bangladesh" data-ram="3GB" data-os="ios" data-battery="3200" data-sim="Dual" data-camera="20" data-camback="31" data-screen="5.6" data-storage="512GB" data-warranty="Brand-Warranty">
+    <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/3008-10903.jpg" alt=""></a>
+    <div class="des">
+        <a href="#"><span> Iphone</span></a>
+        <h4><a href="#l">iPhone 12 Pro Max 24KT Gold Edition</a></h4>
+        <h4>$1900</h4>
+    </div>
+    <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 12 Pro Max 24KT Gold Edition', 1900, 'https://adminapi.applegadgetsbd.com/storage/media/large/3008-10903.jpg')">
+        <i class="bi bi-bag-check-fill"></i>
+    </a>
+</div>
+<div class="pro" data-name="iPhone 13" data-brand="Iphone" data-price="780" >
+  <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-13-9214.jpg" alt=""></a>
+  <div class="des">
+      <a href="#"><span> Iphone</span></a>
+      <h4><a href="#">iPhone 13</a></h4>
+      <h4>$780</h4>
+  </div>
+  <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 13', 780, 'https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-13-9214.jpg')">
+      <i class="bi bi-bag-check-fill"></i>
+  </a>
+</div>
+<div class="pro" data-name="iPhone 13 Pro Max - Official" data-brand="Iphone" data-price="1508">
+<a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/3679-48873.jpg" alt=""></a>
+<div class="des">
+    <a href="#"><span> Iphone</span></a>
+    <h4><a href="#">iPhone 13 Pro Max - Official</a></h4>
+    <h4>$1508</h4>
+</div>
+<a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 13 Pro Max - Official', 1508, 'https://adminapi.applegadgetsbd.com/storage/media/large/3679-48873.jpg')">
+    <i class="bi bi-bag-check-fill"></i>
+</a>
+</div>
+
+      <div class="pro" data-name="Samsung Galaxy S23 Ultra" data-brand="Samsung" data-price="819">
+          <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg" alt=""></a>
+          <div class="des">
+              <a href="#"><span> Samsung</span></a>
+              <h4><a href="#">Samsung Galaxy S23 Ultra</a></h4>
+              <h4>$819</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy S23 Ultra', 819, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra-5g.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="Samsung Galaxy S21 FE 5G" data-brand="Samsung" data-price="310">
+        <a href="../iphone14promax.html"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-fe-5g.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Samsung</span></a>
+            <h4><a href="#">Samsung Galaxy S21 FE 5G</a></h4>
+            <h4>$310</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy S21 FE 5G', 310, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-fe-5g.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="Samsung Galaxy A54" data-brand="Samsung" data-price="280">
+        <a href="../iphone14promax.html"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Samsung</span></a>
+            <h4><a href="iphone14promax.html">Samsung Galaxy A54</a></h4>
+            <h4>$280</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy A54', 280, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="Samsung Galaxy S23 FE" data-brand="Samsung" data-price="545">
+        <a href="../iphone14promax.html"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Samsung</span></a>
+            <h4><a href="iphone14promax.html">Samsung Galaxy S23 FE</a></h4>
+            <h4>$545</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy S23 FE', 545, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="Samsung Galaxy S22 5G" data-brand="Samsung" data-price="340">
+        <a href="../iphone14promax.html"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Samsung</span></a>
+            <h4><a href="iphone14promax.html">Samsung Galaxy S22 5G</a></h4>
+            <h4>$340</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy S22 5G', 340, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s22-5g.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="Samsung Galaxy S21 Ultra 5G" data-brand="Samsung" data-price="450">
+        <a href="../iphone14promax.html"><img src="https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Samsung</span></a>
+            <h4><a href="iphone14promax.html">Samsung Galaxy S21 Ultra 5G</a></h4>
+            <h4>$450</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Samsung Galaxy S21 Ultra 5G', 450, 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+
+      <div class="pro" data-name="OnePlus Open" data-brand="Oneplus" data-price="1699">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-open-10.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus Open</a></h4>
+            <h4>$1699</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus Open', 1699, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-open-10.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="OnePlus 11" data-brand="Oneplus" data-price="650">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-11.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus 11</a></h4>
+            <h4>$650</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus 11', 650, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-11.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="OnePlus 11R" data-brand="Oneplus" data-price="420">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-ace2.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus 11R</a></h4>
+            <h4>$420</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus 11R', 420, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-ace2.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="OnePlus Nord CE3" data-brand="Oneplus" data-price="260">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce3-5g.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus Nord CE3</a></h4>
+            <h4>$260</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus Nord CE3', 260, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce3-5g.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="OnePlus Nord 2 5G" data-brand="Oneplus" data-price="370">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-2-5g-new.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus Nord 2 5G </a></h4>
+            <h4>$370</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus Nord 2 5G', 370, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-2-5g-new.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      <div class="pro" data-name="OnePlus Nord CE 3 Lite" data-brand="Oneplus" data-price="249">
+        <a href="#"><img src="https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce-3-lite-.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Oneplus</span></a>
+            <h4><a href="#">OnePlus Nord CE 3 Lite</a></h4>
+            <h4>$249</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('OnePlus Nord CE 3 Lite', 249, 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-ce-3-lite-.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </section>
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fa-solid fa-right-long"></i></a>
+    </section>
+
+    </section>
+
+    <footer class="section-p1" style="background-color: white;">
+      <div class="col">
+        <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2><br>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong> 1229 Kuratoli, kuril, Dhaka Bnagladesh</p>
+        <p><strong>Phone: </strong> +8801791428394</p>
+        <p><strong>Hosuse: </strong> 25/5 K, Kuratoli</p>
+          <div class="follow">
+            <h4>Follow Uc</h4>
+              <div>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <var><a href="#">Terms & Condition</a>
+          <a href="#">Contact Us</a></var>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4> Install App</h4>
+        <p> From App Store or Google Play Store</p>
+        <div class="row">
+          <img src="image/appstore.png">
+          <img src="image/playstore.png">
+        </div>
+        <p>Secured Payment Method</p>
+        <img src="image/payment.jpg" alt="">
+
+    </footer>
+  <div class="copyright" style="text-align: center; background-color: white;">
+    <p> © 2021, Promin E-commerce - HTML CSS Ecommerce Template</p>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productList = document.getElementById("pro-contariners");
+        const searchParams = new URLSearchParams(window.location.search);
+        const searchQuery = searchParams.get("search");
+    
+        const productElements = document.querySelectorAll('.pro');
+    
+        // Filter products based on the full search query
+        const filteredProducts = Array.from(productElements).filter(productElement => {
+            const productName = productElement.getAttribute("data-name");
+            return productName.toLowerCase().includes(searchQuery.toLowerCase());
+        });
+    
+        displayProducts(filteredProducts);
+    
+        function displayProducts(productArray) {
+            productList.innerHTML = ""; // Clear the product list before displaying search results
+            if (productArray.length === 0) {
+                productList.innerHTML = "<p>No products found.</p>";
+            } else {
+                productArray.forEach(productElement => {
+                    productList.appendChild(productElement.cloneNode(true));
+                });
+            }
+        }
+    });
+    
+        </script>
+        <script> //search
+          document.addEventListener("DOMContentLoaded", function () {
+        const searchButton = document.getElementById("searchButton");
+        const searchInput = document.getElementById("searchInput");
+        const searchHistoryPopup = document.getElementById("search-history-popup");
+        const searchHistoryList = document.getElementById("search-history-list");
+        const clearHistoryButton = document.getElementById("clearHistory");
+        
+        // Retrieve search history from local storage
+        const searchHistoryData = JSON.parse(localStorage.getItem("searchHistory")) || [];
+        
+        function updateSearchHistory() {
+          searchHistoryList.innerHTML = "";
+          searchHistoryData.slice(0, 7).forEach(query => {
+              const listItem = document.createElement("li");
+              listItem.textContent = query;
+              listItem.addEventListener("click", () => {
+                  searchInput.value = query;
+                  searchProducts(query);
+                  hideSearchHistory();
+              });
+              searchHistoryList.appendChild(listItem);
+          });
+        }
+        
+        function showSearchHistory() {
+          searchHistoryPopup.style.display = "block";
+          updateSearchHistory();
+        }
+        
+        function hideSearchHistory() {
+          searchHistoryPopup.style.display = "none";
+        }
+        
+        clearHistoryButton.addEventListener("click", () => {
+          searchHistoryData.length = 0;
+          localStorage.removeItem("searchHistory");
+          updateSearchHistory();
+        });
+        
+        searchButton.addEventListener("click", function () {
+          const query = searchInput.value.trim();
+          if (query === "") return;
+        
+          // Add the search query to the search history
+          searchHistoryData.unshift(query);
+          localStorage.setItem("searchHistory", JSON.stringify(searchHistoryData));
+          updateSearchHistory();
+        
+          searchshop(query);
+        });
+        
+        searchInput.addEventListener("input", showSearchHistory);
+        searchInput.addEventListener("blur", hideSearchHistory);
+        
+        function searchshop(query) {
+          window.location.href = `shop.html?search=${query}`;
+        }
+        });
+        
+        </script>
+        <script>
+          function sortProducts() {
+              const sortOption = document.getElementById("sort").value;
+              const productContainer = document.getElementById("pro-contariners");
+              const products = Array.from(productContainer.getElementsByClassName("pro"));
+      
+              switch (sortOption) {
+                  case "newest":
+                      products.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+                      break;
+                  case "oldest":
+                      products.sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
+                      break;
+                  case "priceHighToLow":
+                      products.sort((a, b) => b.dataset.price - a.dataset.price);
+                      break;
+                  case "priceLowToHigh":
+                      products.sort((a, b) => a.dataset.price - b.dataset.price);
+                      break;
+                  case "nameAZ":
+                      products.sort((a, b) => a.querySelector("h4 a").innerText.localeCompare(b.querySelector("h4 a").innerText));
+                      break;
+                  case "nameZA":
+                      products.sort((a, b) => b.querySelector("h4 a").innerText.localeCompare(a.querySelector("h4 a").innerText));
+                      break;
+                  default:
+                      // Do nothing if no option is selected
+              }
+      
+              // Clear the container and append sorted products
+              while (productContainer.firstChild) {
+                  productContainer.removeChild(productContainer.firstChild);
+              }
+      
+              for (const product of products) {
+                  productContainer.appendChild(product);
+              }
+          }
+      
+          document.getElementById("sort").addEventListener("change", sortProducts);
+      
+      </script> 
+
+
+  <script>
+   function filterProducts() {
+        var selectedBrands = getSelectedValues('brand-filter');
+        var selectedLocations = getSelectedValues('location-filter');
+        var selectedRam = getSelectedValues('ram-filter');
+        var selectedOperatingSystems = getSelectedValues('Operating-filter');
+        var selectedBatteryCapacities = getSelectedValues('Battery-filter');
+        var selectedNumbersOfSim = getSelectedValues('Number-filter');
+        var selectedCameraFront = getSelectedValues('Camera-filter');
+        var selectedCameraBack = getSelectedValues('Backcam-filter');
+        var selectedScreenSize = getSelectedValues('ScreenSize-filter');
+        var selectedStorage = getSelectedValues('storage-filter');
+        var selectedWarrantyTypes = getSelectedValues('warranty-filter');
+        var minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+        var maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+        var products = document.getElementsByClassName('pro');
+        
+        for (var i = 0; i < products.length; i++) {
+            var productBrand = products[i].getAttribute('data-brand');
+            var productLocation = products[i].getAttribute('data-location');
+            var productRam = products[i].getAttribute('data-ram');
+            var productOperatingSystem = products[i].getAttribute('data-os');
+            var productBatteryCapacity = parseFloat(products[i].getAttribute('data-battery'));
+            var productNumberOfSim = products[i].getAttribute('data-sim');
+            var productCameraFront = parseFloat(products[i].getAttribute('data-camera'));
+            var productCameraBack = parseFloat(products[i].getAttribute('data-camback'));
+            var productScreenSize = parseFloat(products[i].getAttribute('data-screen'));
+            var productStorage = products[i].getAttribute('data-storage');
+            var productWarrantyType = products[i].getAttribute('data-warranty');
+            var productPrice = parseFloat(products[i].getAttribute('data-price'));
+    
+            var brandMatch = selectedBrands.length === 0 || selectedBrands.includes(productBrand);
+            var locationMatch = selectedLocations.length === 0 || selectedLocations.includes(productLocation);
+            var ramMatch = selectedRam.length === 0 || selectedRam.includes(productRam);
+            var osMatch = selectedOperatingSystems.length === 0 || selectedOperatingSystems.includes(productOperatingSystem);
+            var batteryMatch = selectedBatteryCapacities.length === 0 || selectedBatteryCapacities.includes(getBatteryRange(productBatteryCapacity));
+            var numberOfSimMatch = selectedNumbersOfSim.length === 0 || selectedNumbersOfSim.includes(productNumberOfSim);
+            var cameraFrontMatch = selectedCameraFront.length === 0 || selectedCameraFront.includes(getCameraFrontRange(productCameraFront));
+            var cameraBackMatch = selectedCameraBack.length === 0 || selectedCameraBack.includes(getCameraBackRange(productCameraBack));
+            var screenSizeMatch = selectedScreenSize.length === 0 || selectedScreenSize.includes(getScreenSizeRange(productScreenSize));
+            var storageMatch = selectedStorage.length === 0 || selectedStorage.includes(getStorageRange(productStorage));
+            var warrantyMatch = selectedWarrantyTypes.length === 0 || selectedWarrantyTypes.includes(productWarrantyType);
+            var priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+    
+            var shouldShow = brandMatch && locationMatch && ramMatch && osMatch && batteryMatch && numberOfSimMatch && cameraFrontMatch && cameraBackMatch && screenSizeMatch && storageMatch && warrantyMatch && priceMatch;
+            
+            products[i].style.display = shouldShow ? 'block' : 'none';
+        }
+    }
+    
+    function getSelectedValues(className) {
+        var checkboxes = document.getElementsByClassName(className);
+        var selectedValues = [];
+    
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                selectedValues.push(checkboxes[i].value);
+            }
+        }
+    
+        return selectedValues;
+    }
+    
+ function getBatteryRange(capacity) {
+    if (capacity >= 5000 && capacity <= 5999) {
+        return '2000-2999';
+    } else if (capacity >= 4000 && capacity <= 4999) {
+        return '3000-3999';
+    } else if (capacity >= 4000 && capacity <= 4999) {
+        return '4000-4999';
+    } else if (capacity >= 4000 && capacity <= 4999) {
+        return '5000-5999';
+    } else if (capacity >= 4000 && capacity <= 4999) {
+        return '6000-6999';
+    }
+    // Add similar conditions for other battery capacity ranges
+
+    return '';
+  }
+  
+  function getCameraFrontRange(megapixels) {
+      if (megapixels >= 6 && megapixels <= 10) {
+          return '6-10';
+      } else if (megapixels >= 11 && megapixels <= 15) {
+          return '11-15';
+      } else if (megapixels >= 1 && megapixels <= 5) {
+          return '1-5';
+      } else if (megapixels >= 16 && megapixels <= 30) {
+          return '16-30';
+      } else if (megapixels >= 31 && megapixels <= 40) {
+          return '31-40';
+      } else if (megapixels >= 41 && megapixels <= 50) {
+          return '41-50';
+      } else if (megapixels >= 50 && megapixels <= 1000) {
+          return '50-1000';
+      }
+      // Add similar conditions for other camera front ranges
+  
+      return '';
+  }
+    
+  function getCameraBackRange(megapixels) {
+    if (megapixels >= 41 && megapixels <= 50) {
+        return '41-50';
+    } else if (megapixels >= 50 && megapixels <= 2000) {
+        return '50-2000';
+    } else if (megapixels >= 31 && megapixels <= 40) {
+        return '31-40';
+    } else if (megapixels >= 6 && megapixels <= 10) {
+        return '6-10';
+    } else if (megapixels >= 11 && megapixels <= 15) {
+        return '11-15';
+    } else if (megapixels >= 1 && megapixels <= 5) {
+        return '1-5';
+    } else if (megapixels >= 16 && megapixels <= 30) {
+        return '16-30';
+    }
+    // Add similar conditions for other camera back ranges
+
+    return '';
+}
+
+function getScreenSizeRange(inches) {
+    if (inches >= 6 && inches <= 8) {
+        return '6-8';
+    } else if (inches >= 5.6 && inches <= 6) {
+        return '5.6-6';
+    } else if (inches >= 5.1 && inches <= 5.5) {
+        return '5.1-5.5';
+    } else if (inches >= 4.6 && inches <= 5) {
+        return '4.6-5';
+    } else if (inches >= 4.1 && inches <= 4.5) {
+        return '4.1-4.5';
+    } else if (inches >= 3.6 && inches <= 4) {
+        return '3.6-4';
+    }
+    // Add similar conditions for other screen size ranges
+
+    return '';
+}
+function getStorageRange(capacity) {
+        if (capacity === '128GB') {
+            return '128';
+        } else if (capacity === '256GB') {
+            return '256';
+        } else if (capacity === '64GB') {
+            return '64';
+        } else if (capacity === '32GB') {
+            return '32';
+        } else if (capacity === '512GB') {
+            return '512';
+        } else if (capacity === '1TB') {
+            return '1TB';
+        } else if (capacity === '16GB') {
+            return '16';
+        } else if (capacity === '8GB') {
+            return '8';
+        } else if (capacity === '4GB') {
+            return '4';
+        } else if (capacity === '2GB') {
+            return '2';
+        } else if (capacity === '1GB-0GB') {
+            return '1-0';
+        }
+        // Add similar conditions for other storage capacity ranges
+
+        return '';
+    }
+    </script>
+    
+  
+
+    <script src="scripts.js"></script>
+    <script src="products.js"></script>
+  </body>
+</html>

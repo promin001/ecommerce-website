@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  
+   <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+        .product-info {
+            margin-left: 20px;
+        }
+        
+        #cart {
+            border: 1px solid #333;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        #cart h2 {
+            font-size: 18px;
+        }
+        
+        #cart table {
+            width: 100%;
+        }
+        
+        #cart th, #cart td {
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+            padding: 5px;
+        }
+        
+        #total {
+            text-align: right;
+            margin: 10px;
+        }
+
+        .quantity-input {
+            width: 40px;
+        }
+    </style>
+
+</head>
+  <body>
+    <header class="header">
+      <div class="top-navbar-border">
+        <div class="top-navbar">
+          <a href="#">Become a Seller &nbsp &nbsp &nbsp</a>
+          <a href="#">Donate &nbsp&nbsp&nbsp</a>
+          <a href="#">Help and Support</a>
+        <div class="top-nevber-app" >
+          <a href="#">Download App</a>
+        </div>
+        </div>
+      </div>
+      <div class="navbar-border">
+        <div class="navbar">
+        <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2>
+        <ul class="links">
+            <!--<div class="search-box">
+              <form action="">
+                <input type="search" id="search-input" placeholder="&nbsp &nbsp Search your Items">
+                <a href="index1.html"> <button id="search" type="submit"><i class="fa fa-search"></i></button> 
+              </form>
+            </div> -->
+            <div class="wrapper">
+              <div id="search-container">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Search product name here.."
+                />
+                <a href="index1.html"> <button  id="search">Search</button> </a>
+              </div>
+              <script>
+                function filterProducts() {
+                    // Get user input
+                    const filterValue = document.getElementById("filterInput").value.toLowerCase();
+                    
+                    // Open the second HTML page with the filtered query
+                    window.location.href = `products.html?query=${filterValue}`;
+                }
+            </script>
+            </div>
+            <li><a href="shop.html">Shop</a></li>
+            <li>|</li>
+          <li><a href="#">Login</a></li>
+          <li>|</li>
+          <li><a href="#">Sign Up</a></li>
+          <li>|</li>
+          <div class="switch">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">BN</span>
+            <span class="off">EN</span>
+          </div>
+          <li>|</li>
+          <div>
+            <a href="#">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+              </span>
+            </a>
+          </div>
+        </ul>
+      </div>
+    </div>
+      </nav>
+    </header>
+    <br><br><br><br><br><br><br>
+        <div class="product">
+            <img src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Max-9907.jpg" alt="">
+            <div class="product-info">
+                <h4><a href="#">iPhone 14 Pro Max Official</a></h4>
+                <h4>$1600</h4>
+                <input type="number" id="quantity" value="1" min="1">
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    
+        <div id="cart">
+            <h2>Shopping Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+            </table>
+            <div id="total">Total: $<span id="cart-total">0.00</span></div>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    
+        <script>
+            let cart = [];
+    
+            function addToCart(button) {
+                const productDiv = button.closest('.product');
+                const productInfo = productDiv.querySelector('.product-info');
+                
+                const product = {
+                    image: productDiv.querySelector('img').src,
+                    name: productInfo.querySelector('h4 a').innerText,
+                    price: parseFloat(productInfo.querySelector('h4:last-of-type').innerText.slice(1)),
+                    quantity: parseInt(productDiv.querySelector('#quantity').value),
+                };
+    
+                // Check if the product is already in the cart
+                const existingProduct = cart.find(item => item.name === product.name);
+    
+                if (existingProduct) {
+                    existingProduct.quantity += product.quantity;
+                } else {
+                    cart.push(product);
+                }
+    
+                updateCart();
+            }
+    
+            function updateCart() {
+                const cartItems = document.getElementById('cart-items');
+                const cartTotal = document.getElementById('cart-total');
+                let total = 0;
+    
+                cartItems.innerHTML = "";
+    
+                cart.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${item.image}" alt="Product Image" style="max-width: 50px; max-height: 50px;"></td>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td><input type="number" value="${item.quantity}" min="1" class="quantity-input" onchange="updateQuantity('${item.name}', this.value)"></td>
+                        <td class="subtotal">$${(item.price * item.quantity).toFixed(2)}</td>
+                    `;
+                    cartItems.appendChild(row);
+    
+                    total += item.price * item.quantity;
+                });
+    
+                cartTotal.innerText = total.toFixed(2);
+            }
+    
+            function updateQuantity(productName, newQuantity) {
+                const product = cart.find(item => item.name === productName);
+                if (product) {
+                    product.quantity = parseInt(newQuantity);
+                    updateCart();
+                }
+            }
+    
+            function checkout() {
+                alert("Total Amount: $" + document.getElementById('cart-total').innerText);
+            }
+        </script>
+    </body>
+</html>
+
+
+ 

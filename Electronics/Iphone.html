@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="top-navbar-border">
+        <div class="top-navbar">
+          <a href="#">Become a Seller &nbsp &nbsp &nbsp</a>
+          <a href="#">Donate &nbsp&nbsp&nbsp</a>
+          <a href="#">Help and Support</a>
+        <div class="top-nevber-app" >
+          <a href="#">Download App</a>
+        </div>
+        </div>
+      </div>
+      <div class="navbar-border">
+        <div class="navbar">
+        <h2 class="logo"><a href="../index.html">Promin E-Commerce</a></h2>
+        <ul class="links">
+            <!--<div class="search-box">
+              <form action="">
+                <input type="search" id="search-input" placeholder="&nbsp &nbsp Search your Items">
+                <a href="index1.html"> <button id="search" type="submit"><i class="fa fa-search"></i></button> 
+              </form>
+            </div> -->
+
+            
+            <div class="wrapper">
+              <div id="search-container">
+            <input type="text" id="searchInput" placeholder="Search by product name">
+            <button id="searchButton">Search</button>
+        </div>
+        </div>
+            <li><a href="../shop.html">Shop</a></li>
+            <li>|</li>
+            <li><a href="signup.html">Login & Sign Up</a></li>
+            <li>|</li>
+          <div class="switch">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">BN</span>
+            <span class="off">EN</span>
+          </div>
+          <li>|</li>       
+           <div class="cart-icon" id="open-cart" onclick="openCart()"><i class="bi bi-cart"></i></div>
+          <div class="popup" id="cart-popup">
+    <div class="cart-content">
+        <h2 style="color: black; text-align: center;">Your Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </tbody>
+        </table>
+        <div style="color: black;" class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+        <button onclick="checkout()">Pay</button>
+        <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+    </header>
+    <section class="container">
+      <div class="categoryandproduct">
+      <div class="side-nav">
+        <nav>
+          <div id="filter">
+            <h2>Filter</h2>
+
+            <div class="filter-options">
+                <h3>Price Range</h3>
+                <label>Min: <input type="number" id="min-price" oninput="filterProducts()"></label>
+                <label>Max: <input type="number" id="max-price" oninput="filterProducts()"></label>
+            </div>
+
+            <!-- Filter button to apply filters -->
+            <button id="filter-button" onclick="filterProducts()">Filter</button>
+        </div>
+        </nav>
+      </div>
+      <div class="categorie">
+        <br><br><br><br><br><b><br><br><br><br></b>
+         <!--image slider start-->
+    <section id="product1" class="section-p1">
+      <h2> Feature products</h2>
+      <p>You can see there our Fevorate products</p>
+
+        <div class="pro-contariner">
+          <!-- Product items will be displayed here based on filters -->
+          <div class="pro" data-brand="Iphone" data-price="1600">
+              <a href="../iphone14promax.html"><img src="../image/iphone14promax.jpg" alt=""></a>
+              <div class="des">
+                  <a href="#"><span> Iphone</span></a>
+                  <h4><a href="iphone14promax.html">Iphone 15 pro max</a></h4>
+                  <h4>$1600</h4>
+              </div>
+              <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('Iphone 15 pro max', 1600, 'image/iphone14promax.jpg')"><i class="bi bi-bag-check-fill"></i></a>
+          </div>
+          <div class="pro" data-brand="Iphone" data-price="750">
+            <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/1533-48820.jpg" alt=""></a>
+            <div class="des">
+                <a href="#"><span> Iphone</span></a>
+                <h4><a href="iphone14promax.html">iPhone 12</a></h4>
+                <h4>$750</h4>
+            </div>
+            <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 12', 750, 'https://adminapi.applegadgetsbd.com/storage/media/large/1533-48820.jpg')">
+                <i class="bi bi-bag-check-fill"></i>
+            </a>
+        </div>
+        <div class="pro" data-brand="Iphone" data-price="600">
+          <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/1544-82328.jpg" alt=""></a>
+          <div class="des">
+              <a href="#"><span> Iphone</span></a>
+              <h4><a href="iphone14promax.html">iPhone XS Max </a></h4>
+              <h4>$600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone XS Max ', 600, 'https://adminapi.applegadgetsbd.com/storage/media/large/1544-82328.jpg')">
+              <i class="bi bi-bag-check-fill"></i>
+          </a>
+      </div>
+      <div class="pro" data-brand="Iphone" data-price="1900">
+        <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/3008-10903.jpg" alt=""></a>
+        <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="#l">iPhone 12 Pro Max 24KT Gold Edition</a></h4>
+            <h4>$1900</h4>
+        </div>
+        <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 12 Pro Max 24KT Gold Edition', 1900, 'https://adminapi.applegadgetsbd.com/storage/media/large/3008-10903.jpg')">
+            <i class="bi bi-bag-check-fill"></i>
+        </a>
+    </div>
+    <div class="pro" data-brand="Iphone" data-price="780">
+      <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-13-9214.jpg" alt=""></a>
+      <div class="des">
+          <a href="#"><span> Iphone</span></a>
+          <h4><a href="#">iPhone 13</a></h4>
+          <h4>$780</h4>
+      </div>
+      <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 13', 780, 'https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-13-9214.jpg')">
+          <i class="bi bi-bag-check-fill"></i>
+      </a>
+  </div>
+  <div class="pro" data-brand="Iphone" data-price="1508">
+    <a href="#"><img src="https://adminapi.applegadgetsbd.com/storage/media/large/3679-48873.jpg" alt=""></a>
+    <div class="des">
+        <a href="#"><span> Iphone</span></a>
+        <h4><a href="#">iPhone 13 Pro Max - Official</a></h4>
+        <h4>$1508</h4>
+    </div>
+    <a href="#" style="font-size:24px" class="cart-icon" onclick="addToCart('iPhone 13 Pro Max - Official', 1508, 'https://adminapi.applegadgetsbd.com/storage/media/large/3679-48873.jpg')">
+        <i class="bi bi-bag-check-fill"></i>
+    </a>
+</div>
+
+       
+        </div>
+
+          <!-- Add more product containers here -->
+      </div>
+    </section>
+  </div>
+</div>
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fa-solid fa-right-long"></i></a>
+    </section>
+    
+
+    </section>
+
+    <footer class="section-p1" style="background-color: white;">
+      <div class="col">
+        <h2 class="logo"><a href="../index.html">Promin E-Commerce</a></h2><br>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong> 1229 Kuratoli, kuril, Dhaka Bnagladesh</p>
+        <p><strong>Phone: </strong> +8801791428394</p>
+        <p><strong>Hosuse: </strong> 25/5 K, Kuratoli</p>
+          <div class="follow">
+            <h4>Follow Uc</h4>
+              <div>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <var><a href="#">Terms & Condition</a>
+          <a href="#">Contact Us</a></var>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4> Install App</h4>
+        <p> From App Store or Google Play Store</p>
+        <div class="row">
+          <img src="../image/appstore.png">
+          <img src="../image/playstore.png">
+        </div>
+        <p>Secured Payment Method</p>
+        <img src="../image/payment.jpg" alt="">
+
+    </footer>
+  <div class="copyright" style="text-align: center; background-color: white;">
+    <p> © 2021, Promin E-commerce - HTML CSS Ecommerce Template</p>
+  </div>
+    
+  <script>
+    // Function to filter products based on selected options
+    function filterProducts() {
+        const brandFilters = document.querySelectorAll('.brand-filter:checked');
+        const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+        const maxPrice = parseFloat(document.getElementById('max-price').value) || Number.MAX_VALUE;
+
+        const productElements = document.querySelectorAll('.pro');
+
+        productElements.forEach(product => {
+            const brand = product.getAttribute('data-brand');
+            const price = parseFloat(product.getAttribute('data-price'));
+
+            const brandFilter = brandFilters.length === 0 || Array.from(brandFilters).some(brandFilter => brandFilter.value === brand);
+            const priceFilter = price >= minPrice && price <= maxPrice;
+
+            if (brandFilter && priceFilter) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+
+    // Example function to add products to the cart (replace with your own cart logic)
+    function addToCart(productName, productPrice, productImage) {
+        // Add your cart logic here
+        console.log(`Added ${productName} to the cart. Price: $${productPrice}`);
+    }
+</script>
+
+    <script src="../scripts.js"></script>
+    <script src="../products.js"></script>
+  </body>
+</html>

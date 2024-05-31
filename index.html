@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>E-Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="top-navbar-border">
+        <div class="top-navbar">
+          <a href="Nevber/seller.html">Become a Seller &nbsp &nbsp &nbsp</a>
+          <a href="Nevber/donate.html">Donate &nbsp&nbsp&nbsp</a>
+          <a href="Nevber/helpandsupport.html">Help and Support</a>
+        <div class="top-nevber-app" >
+          <div class="download-app-container">
+            <a class="download-app-link" href="#">Download App</a>
+            <div class="app-popup" id="app-popup">
+                <p>Scan the QR code to download the app:</p>
+                <img src="image/QRcode.png" alt="QR Code"><br><br><br>
+                <p>Download App Now</p>
+                <div class="app-img">
+                <a class="app-store-link" href="#">
+                    <img src="image/appstore.png" alt="App Store">
+                </a>
+                <a class="play-store-link" href="#">
+                    <img src="image/playstore.png" alt="Google Play">
+                </a>
+              </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="navbar-border">
+        <div class="navbar">
+          <div class="all-btn">
+
+            <div class="menu-btn-3" onclick="menuBtnFunction(this)">
+                <span></span>
+            </div>
+
+        </div>
+        <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2>
+        <ul class="links">
+            <!--<div class="search-box">
+              <form action="">
+                <input type="search" id="search-input" placeholder="&nbsp &nbsp Search your Items">
+                <a href="index1.html"> <button id="search" type="submit"><i class="fa fa-search"></i></button> 
+              </form>
+            </div> -->
+            <div class="wrapper">
+              <div id="search-container">
+                  <div id="search-box">
+                      <input type="text" id="searchInput" placeholder="Search by product name">
+                      <button id="searchButton">Search</button>
+                  </div>
+                  <div id="search-history-popup" class="popupp">
+                      <div id="search-history-container">
+                          <ul id="search-history-list"></ul>
+                      </div>
+                      <button id="clearHistory">Clear</button>
+                  </div>
+              </div>
+          </div>
+            <li><a href="shop.html">Shop</a></li>
+            <li>|</li>
+          <li><a href="Login/signup.html">Login & Sign Up</a></li>
+          <li>|</li>
+          <div class="switch">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">BN</span>
+            <span class="off">EN</span>
+          </div>
+          <li>|</li>
+          <div class="cart-icon" id="open-cart" onclick="openCart()"><i class="bi bi-cart"></i></div>
+          <div class="popup" id="cart-popup">
+    <div class="cart-content">
+        <h2 style="color: black; text-align: center;">Your Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+        </table>
+        <div style="color: black;" class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+      </nav>
+    </header>
+    <section class="container">
+      <div class="categories">
+        <br><br><br><br><br><b><br><br><br><br></b>
+         <!--image slider start-->
+  <div class="slide-show" style="display: flex;" >
+<div class="side-nav">
+  <nav>
+    <ul>
+      <li class="dropdown"><a href="Electronics/Electronics.html">Electronics &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+      <ul> 
+        <li class="dropdown2"><a href="Electronics/Smartphone.html">Smart Phone &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+          <ul>
+            <li><a href="Electronics/Iphone.html">Iphone</a></li>
+            <li><a href="Electronics/Samsung.html">Samsung</a></li>
+            <li><a href="Electronics/Oneplus.html">Oneplus</a></li>
+          </ul>
+        </li>
+        <li class="dropdown3"><a href="#">Laptop &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+          <ul>
+            <li><a href="#">Macbook</a></li>
+            <li><a href="#">HP</a></li>
+            <li><a href="#">ASUS</a></li>
+          </ul>
+        </li>
+        <li class="dropdown4"><a href="#">Camera &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+          <ul>
+            <li><a href="#">Canon</a></li>
+            <li><a href="#">Sony</a></li>
+            <li><a href="#">Nikon</a></li>
+          </ul>
+        </li>
+        <li class="dropdown5"><a href="#">Desktaps &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+          <ul>
+            <li><a href="#">All-In-All</a></li>
+            <li><a href="#">Costomize PC</a></li>
+          </ul>
+        </li>
+        <li class="dropdown6"><a href="#">Tablets &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+          <ul>
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Samsung</a></li>
+          </ul>
+        </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a href="#">Women Fashion &nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Saree</a></li>
+          <li><a href="#">Tops</a></li>
+          <li><a href="#">Muslim Wear</a></li>
+          <li><a href="#">Shoes</a></li>
+          <li><a href="#">Bangs</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">men's Fashiom &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Clothing</a></li>
+          <li><a href="#">Shoes</a></li>
+          <li><a href="#">Watches</a></li>
+          <li><a href="#">T-shart</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Health & Beauty &nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Skin Care</a></li>
+          <li><a href="#">Hair Care</a></li>
+          <li><a href="#">Makeup</a></li>
+          <li><a href="#">Beauty Tools</a></li>
+          <li><a href="#">Personal Care</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Baby's Products &nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Kids Toys</a></li>
+          <li><a href="#">feeding</a></li>
+          <li><a href="#">Baby Personal Care</a></li>
+          <li><a href="#">Baby care & Gifts</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Home & Lifestyle &nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Both</a></li>
+          <li><a href="#">Bedding</a></li>
+          <li><a href="#">Cleaning</a></li>
+          <li><a href="#">Cookings Items</a></li>
+          <li><a href="#">Books</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Sports &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Exercise & Fitness</a></li>
+          <li><a href="#">Treadmills</a></li>
+          <li><a href="#">Shoes & Clothing</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Groceries &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i class="bi bi-chevron-double-right"></i></a>
+        <ul> 
+          <li><a href="#">Fruits</a></li>
+          <li><a href="#">Breakfast</a></li>
+          <li><a href="#">Cooking Ingredients</a></li>
+          <li><a href="#">Dairy & Eggs</a></li>
+        </ul></li>
+
+    </ul>
+  </nav>
+</div>
+<div class="slider">
+  <div class="slides">
+    <!--radio buttons start-->
+    <input type="radio" name="radio-btn" id="radio1">
+    <input type="radio" name="radio-btn" id="radio2">
+    <input type="radio" name="radio-btn" id="radio3">
+    <input type="radio" name="radio-btn" id="radio4">
+    <!--radio buttons end-->
+    <!--slide images start-->
+    <div class="slide first">
+      <img src="image/1.jpg" alt="">
+    </div>
+    <div class="slide">
+      <img src="image/2.jpg" alt="">
+    </div>
+    <div class="slide">
+      <img src="image/3.jpg" alt="">
+    </div>
+    <div class="slide">
+      <img src="image/4.jpg" alt="">
+    </div>
+    <!--slide images end-->
+    <!--automatic navigation start-->
+    <div class="navigation-auto">
+      <div class="auto-btn1"></div>
+      <div class="auto-btn2"></div>
+      <div class="auto-btn3"></div>
+      <div class="auto-btn4"></div>
+    </div>
+    <!--automatic navigation end-->
+  </div>
+  <!--manual navigation start-->
+  <div class="navigation-manual">
+    <label for="radio1" class="manual-btn"></label>
+    <label for="radio2" class="manual-btn"></label>
+    <label for="radio3" class="manual-btn"></label>
+    <label for="radio4" class="manual-btn"></label>
+  </div>
+  <!--manual navigation end-->
+</div>
+
+  </div>
+    <section id="product1" class="section-p1">
+      <h2> Feature products</h2>
+      <p>You can see there our Fevorate products</p>
+      <div class="pro-contariner">
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Max-9907.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="#">iPhone 14 Pro Max Official</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="image/iphone14promax.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Honor</span></a>
+            <h4><a href="#">Honor X9a 5G</a></h4>
+            <h4>$300</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/NOTHING-phone-(3)-7609.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> NOTHING</span></a>
+            <h4><a href="#">NOTHING phone (2)</a></h4>
+            <h4>$658</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">MacBook Air M1 8/256GB 13-inch Space Gray</a></h4>
+            <h4>$900</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-EarPods-with-USB-C-Connector-5107.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple EarPods with USB-C Connector</a></h4>
+            <h4>$30</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Alpine-Loop-Olive-6460.png" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Ultra 2 with Alpine Loop GPS + Cellular</a></h4>
+            <h4>$1100</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-Watch-Series-9-(3)-6716.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Series 9</a></h4>
+            <h4>$290</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/4621-67212.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Amazon</span></a>
+            <h4><a href="#">Amazon Kindle Paperwhite E-Reader 11th Gen</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/realme-Buds-Wireless-3-Pure-Black-7080.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> realme</span></a>
+            <h4><a href="#">realme Buds Wireless 3</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Anker-Soundcore-Space-Q45-Noise-Cancelling-Headphones-a-6689.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Anker</span></a>
+            <h4><a href="#">Anker Soundcore Space Q45 Noise Cancelling Headphones</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="banner" class="section-m1">
+      <h4>Exclusive Offer</h4>
+      <h2> Up to <span>70% Off</span> - All the Earphone and Accessories</h2>
+      <button class="Explore-button"> Explore More</button>
+    </section>
+
+    
+    <section id="product1" class="section-p1">
+      <h2> Just For You</h2>
+      <p>You can see there our Fevorate products</p>
+      <div class="pro-contariner">
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Max-9907.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="#">iPhone 14 Pro Max Official</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="image/iphone14promax.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Honor</span></a>
+            <h4><a href="#">Honor X9a 5G</a></h4>
+            <h4>$300</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/NOTHING-phone-(3)-7609.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> NOTHING</span></a>
+            <h4><a href="#">NOTHING phone (2)</a></h4>
+            <h4>$658</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">MacBook Air M1 8/256GB 13-inch Space Gray</a></h4>
+            <h4>$900</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-EarPods-with-USB-C-Connector-5107.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple EarPods with USB-C Connector</a></h4>
+            <h4>$30</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Alpine-Loop-Olive-6460.png" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Ultra 2 with Alpine Loop GPS + Cellular</a></h4>
+            <h4>$1100</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-Watch-Series-9-(3)-6716.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Series 9</a></h4>
+            <h4>$290</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/4621-67212.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Amazon</span></a>
+            <h4><a href="#">Amazon Kindle Paperwhite E-Reader 11th Gen</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/realme-Buds-Wireless-3-Pure-Black-7080.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Realme</span></a>
+            <h4><a href="#">Realme Buds Wireless 3</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="pro">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Anker-Soundcore-Space-Q45-Noise-Cancelling-Headphones-a-6689.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Anker</span></a>
+            <h4><a href="#">Anker Soundcore Space Q45 Noise Cancelling Headphones</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+      </div>
+    </section>
+    <section id="sm-banner" class="section-p1">
+      <div class="banner-box">
+        <h4> Exclusive Offer</h4>
+        <h2>Buy 1 get 1 free</h2>
+        <h5><span style="font-size: 12px;">The best classic Accessories is on sale at care</span></h5><br>
+        <button class="white">learn More</button>
+      </div>&nbsp
+      <div class="banner-box2">
+        <h4> Dress Offers</h4>
+        <h2>30% Off</h2>
+        <h5><span style="font-size: 12px;"> &nbsp &nbsp Kukoosong Girls Dresses Summer Toddler Baby Girl Clothes Sleeveless.</span></h5><br>
+        <button class="white">learn More</button>
+      </div>
+    </section>
+    <section id="banner2" class="section-p2">
+      <a href="#">
+      <div class="banner-box1">
+        <h2>50% Off</h2>
+        <h4> Baby Products</h4>
+      </div></a>
+      <a href="#">
+      <div class="banner-box2">
+        <h2>20% Off</h2>
+        <h4> kitche Items and daily life</h4>
+      </div></a>
+      <a href="#">
+      <div class="banner-box3">
+        <h2>30% Off</h2>
+        <h4> Dress Offers</h4>
+      </div></a>
+    </section>
+
+    <section id="product1" class="section-p1">
+      <h2>All Products</h2>
+      <p>You can see there our Fevorate products</p>
+      <div class="proo-contariner">
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Max-9907.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="#">iPhone 14 Pro Max Official</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="image/iphone14promax.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Honor</span></a>
+            <h4><a href="#">Honor X9a 5G</a></h4>
+            <h4>$300</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/NOTHING-phone-(3)-7609.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> NOTHING</span></a>
+            <h4><a href="#">NOTHING phone (2)</a></h4>
+            <h4>$658</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">MacBook Air M1 8/256GB 13-inch Space Gray</a></h4>
+            <h4>$900</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-EarPods-with-USB-C-Connector-5107.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple EarPods with USB-C Connector</a></h4>
+            <h4>$30</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Alpine-Loop-Olive-6460.png" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Ultra 2 with Alpine Loop GPS + Cellular</a></h4>
+            <h4>$1100</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-Watch-Series-9-(3)-6716.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Series 9</a></h4>
+            <h4>$290</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/4621-67212.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Amazon</span></a>
+            <h4><a href="#">Amazon Kindle Paperwhite E-Reader 11th Gen</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/realme-Buds-Wireless-3-Pure-Black-7080.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> realme</span></a>
+            <h4><a href="#">realme Buds Wireless 3</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Anker-Soundcore-Space-Q45-Noise-Cancelling-Headphones-a-6689.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Anker</span></a>
+            <h4><a href="#">Anker Soundcore Space Q45 Noise Cancelling Headphones</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-14-Pro-Max-9907.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Iphone</span></a>
+            <h4><a href="#">iPhone 14 Pro Max Official</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="image/iphone14promax.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Honor</span></a>
+            <h4><a href="#">Honor X9a 5G</a></h4>
+            <h4>$300</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/NOTHING-phone-(3)-7609.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> NOTHING</span></a>
+            <h4><a href="#">NOTHING phone (2)</a></h4>
+            <h4>$658</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/2323-92738.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">MacBook Air M1 8/256GB 13-inch Space Gray</a></h4>
+            <h4>$900</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-EarPods-with-USB-C-Connector-5107.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple EarPods with USB-C Connector</a></h4>
+            <h4>$30</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Alpine-Loop-Olive-6460.png" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Ultra 2 with Alpine Loop GPS + Cellular</a></h4>
+            <h4>$1100</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-Watch-Series-9-(3)-6716.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Series 9</a></h4>
+            <h4>$290</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/4621-67212.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Amazon</span></a>
+            <h4><a href="#">Amazon Kindle Paperwhite E-Reader 11th Gen</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/realme-Buds-Wireless-3-Pure-Black-7080.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> realme</span></a>
+            <h4><a href="#">realme Buds Wireless 3</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Anker-Soundcore-Space-Q45-Noise-Cancelling-Headphones-a-6689.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Anker</span></a>
+            <h4><a href="#">Anker Soundcore Space Q45 Noise Cancelling Headphones</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Alpine-Loop-Olive-6460.png" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Ultra 2 with Alpine Loop GPS + Cellular</a></h4>
+            <h4>$1100</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/Apple-Watch-Series-9-(3)-6716.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Apple</span></a>
+            <h4><a href="#">Apple Watch Series 9</a></h4>
+            <h4>$290</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/4621-67212.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> Amazon</span></a>
+            <h4><a href="#">Amazon Kindle Paperwhite E-Reader 11th Gen</a></h4>
+            <h4>$1600</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+        <div class="proo">
+          <a href="#"><img  src="https://adminapi.applegadgetsbd.com/storage/media/large/realme-Buds-Wireless-3-Pure-Black-7080.jpg" alt=""></a>
+          <div class="des">
+            <a href="#"><span> realme</span></a>
+            <h4><a href="#">realme Buds Wireless 3</a></h4>
+            <h4>$110</h4>
+          </div>
+          <a href="#" style="font-size:24px" class="fa">&#xf07a;</a>
+        </div>
+
+      </div>
+    </section>
+    </section>
+    <footer class="section-p1" style="background-color: white;">
+      <div class="col">
+        <h2 class="logo"><a href="index.html">Promin E-Commerce</a></h2><br>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong> 1229 Kuratoli, kuril, Dhaka Bnagladesh</p>
+        <p><strong>Phone: </strong> +8801791428394</p>
+        <p><strong>Hosuse: </strong> 25/5 K, Kuratoli</p>
+          <div class="follow">
+            <h4>Follow Uc</h4>
+              <div>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <var><a href="#">Terms & Condition</a>
+          <a href="#">Contact Us</a></var>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4> Install App</h4>
+        <p> From App Store or Google Play Store</p>
+        <div class="row">
+          <img src="image/appstore.png">
+          <img src="image/playstore.png">
+        </div>
+        <p>Secured Payment Method</p>
+        <img src="image/payment.jpg" alt="">
+      </div>
+    </footer>
+    <div class="copyright" style="text-align: center;">
+      <p> © 2023, Promin E-commerce - HTML CSS Ecommerce Template</p>
+    </div>
+    <script type="text/javascript">
+      var counter = 1;
+      setInterval(function(){
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if(counter > 4){
+          counter = 1;
+        }
+      }, 5000);
+      </script>
+    <script>
+      function menuBtnFunction(menuBtn) {
+    menuBtn.classList.toggle("active");
+}
+    </script>
+        <script> //app download
+          const appPopup = document.getElementById("app-popup");
+          
+          document.addEventListener("click", function(event) {
+              if (!appPopup.contains(event.target) && !event.target.classList.contains("download-app-link")) {
+                  appPopup.style.display = "none";
+              }
+          });
+  
+          document.querySelector(".download-app-link").addEventListener("click", function(event) {
+              event.preventDefault();
+              appPopup.style.display = "block";
+          });
+      </script>
+      <script> // add to cart 
+        let cart = [];
+
+function addToCart(name, price, image) {
+    const existingpro = cart.find(item => item.name === name);
+
+    if (existingpro) {
+        existingpro.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1, image });
+    }
+
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td><img src="${item.image}" alt=""></td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td><input type="number" value="${item.quantity}" class="quantity-input" min="1" onchange="updateQuantity('${item.name}', this.value)"></td>
+            <td>$${(item.price * item.quantity).toFixed(2)}</td>
+            <button onclick="removeFromCart(${index})" class="button">
+  <svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg>
+</button>
+        `;
+        cartItems.appendChild(row);
+
+        total += item.price * item.quantity;
+    });
+
+    document.getElementById('cart-total').textContent = total.toFixed(2);
+}
+
+function openCart() {
+    document.getElementById('cart-popup').style.display = 'flex';
+}
+
+function closeCart() {
+    document.getElementById('cart-popup').style.display = 'none';
+}
+
+function updateQuantity(name, newQuantity) {
+    const pro = cart.find(item => item.name === name);
+    if (pro) {
+        pro.quantity = parseInt(newQuantity);
+        updateCart();
+    }
+}
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+function buyNow(name, price, image) {
+  cart = [{ name, price, quantity: 1, image }];
+  openCart();
+  updateCart();
+}
+
+function checkout() {
+    closeCart();
+    alert(`Total Amount: $${document.getElementById('cart-total').textContent}`);
+}
+      </script>
+
+<script> //search
+  document.addEventListener("DOMContentLoaded", function () {
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("searchInput");
+const searchHistoryPopup = document.getElementById("search-history-popup");
+const searchHistoryList = document.getElementById("search-history-list");
+const clearHistoryButton = document.getElementById("clearHistory");
+
+// Retrieve search history from local storage
+const searchHistoryData = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+function updateSearchHistory() {
+  searchHistoryList.innerHTML = "";
+  searchHistoryData.slice(0, 7).forEach(query => {
+      const listItem = document.createElement("li");
+      listItem.textContent = query;
+      listItem.addEventListener("click", () => {
+          searchInput.value = query;
+          searchProducts(query);
+          hideSearchHistory();
+      });
+      searchHistoryList.appendChild(listItem);
+  });
+}
+
+function showSearchHistory() {
+  searchHistoryPopup.style.display = "block";
+  updateSearchHistory();
+}
+
+function hideSearchHistory() {
+  searchHistoryPopup.style.display = "none";
+}
+
+clearHistoryButton.addEventListener("click", () => {
+  searchHistoryData.length = 0;
+  localStorage.removeItem("searchHistory");
+  updateSearchHistory();
+});
+
+searchButton.addEventListener("click", function () {
+  const query = searchInput.value.trim();
+  if (query === "") return;
+
+  // Add the search query to the search history
+  searchHistoryData.unshift(query);
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistoryData));
+  updateSearchHistory();
+
+  searchshop(query);
+});
+
+searchInput.addEventListener("input", showSearchHistory);
+searchInput.addEventListener("blur", hideSearchHistory);
+
+function searchshop(query) {
+  window.location.href = `shop.html?search=${query}`;
+}
+});
+
+</script>
+    <script src="products.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
